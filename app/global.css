@@ -1,0 +1,36 @@
+/* using mobile first design */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+    --mobile: 375px;
+    --tablet: 768px;
+    --desktop: 1024px;
+
+    --white: #FFF;
+    --black: #000;
+    --font-black: #212529;
+    --gray: #CCC;
+    --yellow: #DAFF01;
+    --purple: #9353FF;
+    --pink: #EE6471;
+    --orange: #F87F46;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--font-black);
+    margin: 0 auto;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+@media screen and (min-width:var(--desktop)){
+    a:hover {
+        text-decoration: underline;
+    }
+}
