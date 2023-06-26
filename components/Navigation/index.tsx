@@ -8,34 +8,55 @@ import { MtNavLink } from "../UI";
 import { usePathname } from "next/navigation";
 import AnimatedMenuIcon from "../AnimatedMenuIcon";
 import styles from './Navigation.module.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
     links: NavigationLinks[];
 }
 
 // Renders links of a navigation menu
-export default function Navigation({ links } : Props) {
-    const [menuOpened, setMenuOpened] = useState(false);
-    const pathname = usePathname();
+export default function Navigation({ links } : Props) {    
+    // some elements and functions will behave different for bigger screens
+    const BIG_SCREEN = 768;
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     
+    const [menuOpened, setMenuOpened] = useState(screenWidth >= BIG_SCREEN);
+
+    // we get the route to style active link
+    const pathname = usePathname();
+       
     // add styles to show/hide links
     const navigationVisible = menuOpened 
         ? styles['navigation--visible'] 
         : styles['navigation--hidden'];
 
+    // listen to any changes of the screen size
+    useEffect(() => {        
+        function handleScreenResize() {
+            setScreenWidth(window.innerWidth);
+            setMenuOpened(window.innerWidth >= BIG_SCREEN);
+        }
+
+        window.addEventListener('resize', handleScreenResize)
+
+        return () => {
+            window.removeEventListener('resize', handleScreenResize);
+        }
+    }, [])    
+
     function toggleMenu() {
         setMenuOpened(oldState => !oldState);
     }
 
-    // I could use only toggleMenu() but, who knows...
     function closeMenu() {
-        setMenuOpened(false);
+        // only close it if it's a mobile screen
+        if (screenWidth < BIG_SCREEN) setMenuOpened(false);
+        return;
     }
 
     return (
         <>
-            <AnimatedMenuIcon onClick={toggleMenu} open={menuOpened} />
+            {(screenWidth < BIG_SCREEN) && <AnimatedMenuIcon onClick={toggleMenu} open={menuOpened} />}
             <nav className={`${styles.navigation} ${navigationVisible}`}>
                 <ul>
                     {links.map(link => {

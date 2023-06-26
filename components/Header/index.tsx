@@ -24,7 +24,7 @@ const links = [
 
 export default function Header() {
     return (
-        <header>
+        <header className={styles.headerWrapper}>
             <div className={styles.linksWrapper}>
                 <Logo src='/logo.png' alt='Logotipo da Meteora' />
                 <Navigation links={links}/>

@@ -8,6 +8,12 @@ import Link from "next/link";
 // image to add in Logo
 export const MtImgLogo = styled.img`
     width: 126px;
+    @media(min-width: 768px) {
+        width: 99px;
+    }
+    @media(min-width: 1024px) {
+        width: 132px;
+    }
 `;
 
 // link in navigation menu 
@@ -29,6 +35,15 @@ export const MtHeaderButton = styled.button`
     height: 38px;
     cursor: pointer;
     box-sizing: border-box;
+    @media(min-width: 768px) {
+        background-color: var(--black);
+        color: var(--white);
+        border-color: var(--white);
+        font-size: 13px;
+    }
+    @media(min-width: 1024px) {
+        font-size: 16px;
+    }
 `;
 
 // custom input
@@ -41,5 +56,12 @@ export const MtInput = styled.input`
     &::placeholder {
         color: #6C757D;
         font-weight: 400;
+    }
+    @media(min-width: 768px) {
+        width: 145px;
+    }
+    @media(min-width: 768px) {
+        width: 170px;
+        font-size: 15px;
     }
 `;
