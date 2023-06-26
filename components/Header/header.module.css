@@ -1,0 +1,15 @@
+.linksWrapper {
+    background-color: var(--black);
+    height: 58px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* needs overflow-x to hide the translation that is applied during
+    the animation of the menu icon when it is opened (on mobile) */
+    overflow-x: hidden;
+}
+
+.searchWrapper {
+    padding: 25px 0;
+}

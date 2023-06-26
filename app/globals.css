@@ -1,7 +1,4 @@
 /* using mobile first design */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-
 :root {
     --mobile: 375px;
     --tablet: 768px;
@@ -18,7 +15,6 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: var(--font-black);
@@ -29,7 +25,17 @@ a, a:hover {
     text-decoration: none;
 }
 
-@media screen and (min-width:var(--desktop)){
+button, input {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 
+    Sadly, var() doesn't work with media queries 
+    See: https://bholmes.dev/blog/alternative-to-css-variable-media-queries/
+*/
+@media screen and (min-width: 1024px){
     a:hover {
         text-decoration: underline;
     }

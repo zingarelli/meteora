@@ -1,0 +1,48 @@
+/* Menu animation */
+.checkbox {
+    display: none;
+}
+
+.icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.icon__trace {
+    width: 100%;
+    height: 2px;
+    background-color: var(--yellow);
+    position: absolute;
+    transition: .2s ease-in;
+}
+
+.icon__trace:nth-child(1) {
+    top: 0;
+}
+
+.icon__trace:nth-child(2) {
+    top: 7px;
+}
+
+.icon__trace:nth-child(3) {
+    top: 14px;
+}
+
+/* animate menu icon */
+.icon--open .icon__trace:nth-child(1) {
+    transform: rotate(-45deg);
+    top: 7px;
+}
+
+.icon--open .icon__trace:nth-child(2) {
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+.icon--open .icon__trace:nth-child(3) {
+    transform: rotate(45deg);
+    top: 7px;
+}
