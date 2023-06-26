@@ -1,14 +1,16 @@
 /* Menu animation */
-.checkbox {
+/* .checkbox {
     display: none;
-}
+} */
 
 .icon {
-    display: block;
     width: 18px;
     height: 18px;
     position: relative;
     z-index: 2;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .icon__trace {
@@ -16,6 +18,7 @@
     height: 2px;
     background-color: var(--yellow);
     position: absolute;
+    left: 0;
     transition: .2s ease-in;
 }
 

@@ -10,14 +10,14 @@ interface Props {
 // access it in order to verify if checkbox is checked or not
 export default function  AnimatedMenuIcon({ onClick, open }: Props) {
     return (
-        <div 
+        <button aria-label='Abre o menu de links'
             className={`${styles.icon} ${open ? styles['icon--open'] : ''}`} 
             onClick={onClick} 
         >
-            <span className={styles.icon__trace}></span>
-            <span className={styles.icon__trace}></span>
-            <span className={styles.icon__trace}></span>
-        </div>
+            <span className={styles.icon__trace} aria-hidden></span>
+            <span className={styles.icon__trace} aria-hidden></span>
+            <span className={styles.icon__trace} aria-hidden></span>
+        </button>
     )
 };
 
